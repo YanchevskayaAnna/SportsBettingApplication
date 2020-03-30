@@ -1,0 +1,28 @@
+.welcome {
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.topright {
+    text-align: right;
+}
+
+.topleft {
+    text-align: left;
+}
+
+.userinfo-signout {
+     text-align: right;
+     color: blue;
+     font-size: 15px;
+ }
+
+.userinfo {
+    text-align: right;
+    color: darkorange;
+    font-weight: bold;
+    font-size: 15px;
+}

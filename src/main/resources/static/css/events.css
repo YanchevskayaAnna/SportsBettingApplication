@@ -1,0 +1,18 @@
+.table-events {
+    max-width: 2000px;
+    padding: 30px 38px 35px;
+    margin: 0 auto;
+    background-color: #eee;
+    border: 3px dotted rgba(0,0,0,0.1);
+}
+
+.events-heading {
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.sport-event {
+    color: blue;
+    font-weight: bold;
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="common :: myheader"></div>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+</head>
+<body>
+<div th:insert="common :: welcome"></div>
+<div th:insert="common :: changeLanguage"></div>
+<div th:insert="common :: loginimage"></div>
+<div class="container">
+    <form th:action="@{/login}" method="POST" class="form-signin">
+        <h3 class="form-signin-heading" th:text="#{Welcome}"></h3>
+        <br/>
+
+        <input type="text" id="user_name" name="user_name" th:placeholder="#{UserName}"
+               class="form-control"/> <br/>
+        <input type="password" th:placeholder="#{Password}"
+               id="password" name="password" class="form-control"/> <br/>
+
+        <div align="center" th:if="${param.error}">
+            <p style="font-size: 20; color: #FF1C19;" th:text="#{incorrectLogin}"></p>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
+                th:text="Login">
+        </button>
+    </form>
+    <form th:action="@{/registration}" method="get" class="form-registration">
+        <button class="btn btn-md btn-warning btn-block" type="Submit" th:text="#{GoToRegistrationPage}"></button>
+    </form>
+</div>
+</body>
+</html>

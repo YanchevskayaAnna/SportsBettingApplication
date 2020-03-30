@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="common :: myheader"></div>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/wager.css}"/>
+</head>
+<body>
+<div th:insert="common :: welcome"></div>
+<div th:insert="common :: changeLanguage_userinfo"></div>
+<div class="container">
+    <div class="form-wager row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div th:insert="common :: wagerimage"></div>
+            </div>
+            <h2 class="wager-heading sport-event" th:text="#{SportEvent(${sportevent})}"></h2>
+            <h4 class="wager-heading" th:text="#{SportEventPeriod(${sporteventstart}, ${sporteventend})}"></h4>
+            <h5 class="wager-heading" th:text="#{SportEventType(${sporteventtype})}"></h5>
+            <h4 class="wager-heading" th:text="#{BetType(${bettype})}"></h4>
+            <h5 class="wager-heading" th:text="#{BetDescription(${betdescription})}"></h5>
+        </div>
+        <br/>
+        <div class="col-md-12">
+            <form th:action="@{'/player/wager/bet/' + ${betId}}" th:object="${wager}" method="POST">
+                <table align="center" class="wager-table">
+                    <tr>
+                        <td>Outcome</td>
+                        <td>
+                            <div class="col-md-2">
+                                <select th:field="*{outcomeOdd}">
+                                    <option th:each="outcomeOdd : ${allOutcomes}" th:value="${outcomeOdd.id}"
+                                            th:text="${outcomeOdd}">
+                                        Outcome
+                                    </option>
+                                </select>
+                                <label
+                                        th:if="${#fields.hasErrors('outcomeOdd')}" th:errors="*{outcomeOdd}"
+                                        class="validation-message">
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <input type="number" th:field="*{amount}" placeholder="Amount"
+                                           class="form-control"/>
+                                    <label
+                                            th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"
+                                            class="validation-message">
+                                    </label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" th:readonly="true" th:field="*{currency}" placeholder="Currency"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary btn-block">Create wager</button>
+                        <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <form th:action="@{/player/events/}" method="get" class="form-home">
+        <button class="btn btn-md btn-warning btn-block" type="Submit" th:text="#{GoToHomePage}">Go To Home Page
+        </button>
+    </form>
+</div>
+</body>
+</html>

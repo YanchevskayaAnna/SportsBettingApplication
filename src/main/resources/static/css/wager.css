@@ -1,0 +1,44 @@
+.validation-message {
+    font-style: normal;
+    font-size: 12px;
+    color: #FF1C19;
+}
+.error{
+    color: red;
+    font-size: 15px;
+}
+.user{
+    color: blue;
+    font-size: 15px;
+}
+
+.form-wager {
+    max-width: 920px;
+    padding: 0px 38px 0px;
+    margin: 0 auto;
+    background-color: #eee;
+    border: 3px dotted rgba(0,0,0,0.1);
+}
+
+.wager-heading {
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.form-home {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.sport-event {
+    color: blue;
+    font-weight: bold;
+}
+
+.wager-table {
+    align-content: center;
+    text-align:center;
+    font-size: large;
+    font-weight: bold;
+    border: 3px dotted rgba(0,0,0,0.1);
+}

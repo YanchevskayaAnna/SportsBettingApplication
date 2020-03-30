@@ -1,0 +1,39 @@
+.validation-message {
+    font-style: normal;
+    font-size: 12px;
+    color: #FF1C19;
+}
+.error{
+    color: red;
+    font-size: 15px;
+}
+.user{
+    color: blue;
+    font-size: 15px;
+}
+
+.form-signup {
+    max-width: 620px;
+    padding: 0px 38px 0px;
+    margin: 0 auto;
+    background-color: #eee;
+    border: 3px dotted rgba(0,0,0,0.1);
+}
+
+.form-signup-heading {
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.form-login {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.table-wagers {
+    max-width: 2000px;
+    padding: 30px 38px 35px;
+    margin: 0 auto;
+    background-color: #eee;
+    border: 3px dotted rgba(0,0,0,0.1);
+}

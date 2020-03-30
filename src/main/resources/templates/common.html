@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+</head>
+<div th:fragment="myheader">
+    <title>Sports betting application</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+<div th:fragment="welcome" class="welcome">
+    <h1 th:text="#{welcome.greeting}"></h1>
+    <h5 th:text="#{welcome.explanation}"></h5>
+</div>
+<div th:fragment="changeLanguage">
+    <a href="?lang=en">English</a> | <a href="?lang=ua">Ukraine</a>
+</div>
+<div th:fragment="changeLanguage_userinfo">
+        <div class="row">
+        <div class="col-md-10">
+            <a href="?lang=en">English</a> | <a href="?lang=ua">Ukraine</a>
+        </div>
+        <div class="col-md-2">
+            <a th:href="@{'/userinfo/' + ${#authentication.name}}" class="userinfo"
+               th:text="${#authentication.name}">Settings</a> |
+            <a th:href="@{/logout}" class="userinfo-signout">Sign Out</a>
+        </div>
+    </div>
+</div>
+<div th:fragment="userinfo">
+    <div class="container">
+            <span sec:authorize="isAuthenticated()">
+                <a th:href="@{'/userinfo/' + ${#authentication.name}}" class="userinfo" th:text="${#authentication.name}">Settings</a> |
+                <a th:href="@{/logout}" class="userinfo-signout">Sign Out</a>
+            </span>
+    </div>
+</div>
+
+<div th:fragment="loginimage">
+    <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="100" height="100" alt="Logo"/>
+</div>
+<div th:fragment="eventimage">
+    <img th:src="@{/images/events.png}" class="img-responsive center-block" width="100" height="100" alt="Logo"/>
+</div>
+<div th:fragment="wagerimage">
+    <img th:src="@{/images/wager.jpg}" class="img-responsive center-block" width="100" height="100" alt="Logo"/>
+</div>
+
+</body>
+</html>

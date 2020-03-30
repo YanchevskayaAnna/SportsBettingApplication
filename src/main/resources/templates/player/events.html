@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="common :: myheader"></div>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/events.css}"/>
+</head>
+<body>
+<div th:insert="common :: welcome"></div>
+<div th:insert="common :: changeLanguage_userinfo"></div>
+<div th:insert="common :: eventimage"></div>
+<div class="container">
+    <h3 class="events-heading" th:text="#{SportEventList}"></h3>
+    <br/>
+    <table class="table table-striped table-events">
+        <thead>
+        <tr>
+            <th> Event title </th>
+            <th> Event type </th>
+            <th> Event start </th>
+            <th> Event end </th>
+            <th> Bets </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${events.empty}">
+            <td colspan="2"> No Sport event Available</td>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td><span th:text="${event.title}"> Title </span></td>
+            <td><span th:text="${event.type}"> Type </span></td>
+            <td><span th:text="${event.startDate}"> Start </span></td>
+            <td><span th:text="${event.endDate}"> End </span></td>
+            <td><a class="btn btn-success" href="#" th:href="@{'/player/bets/event/' + ${event.id}}"> bets </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

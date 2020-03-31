@@ -49,11 +49,11 @@ public class DataLoader{
     public static void run(String... args) throws Exception {
         log.info("Data loading...");
 
-        userService.saveUser(new Admin("admin", "hanna_yanchevska@epam.com", "Friends"));
+        userService.saveUser(new Admin("admin", "anna_yanchevskaya@git.com", "admin"));
         userService.saveUser(new Player(
                 "player",
-                "hanna_yanchevska@epam.com",
-                "Friends",
+                "anna_yanchevskaya@git.com",
+                "player",
                 "123456789",
                 100.00,
                 Currency.EUR,
